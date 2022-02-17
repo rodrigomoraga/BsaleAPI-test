@@ -1,5 +1,6 @@
 ﻿using BsaleAPI_test.Data;
 using BsaleAPI_test.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace BsaleAPI_test.Controllers
         {
             _categoryRepository = categoryRepository;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {
