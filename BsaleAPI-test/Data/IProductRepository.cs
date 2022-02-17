@@ -9,6 +9,7 @@ namespace BsaleAPI_test.Data
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetAllProducts();
+        Task<IEnumerable<Product>> GetAllProducts(string busqueda);
         Task<Product> GetProductDetails(int id);
         Task<bool> InsertProduct(Product product);
         Task<bool> UpdateProduct(Product product);

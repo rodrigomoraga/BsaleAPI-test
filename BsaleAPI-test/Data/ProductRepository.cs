@@ -82,5 +82,17 @@ namespace BsaleAPI_test.Data
 
             return result > 0;
         }
+
+        public async Task<IEnumerable<Product>> GetAllProducts(string busqueda)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT id, name, url_image, price, discount, category
+                        FROM product
+                        WHERE name LIKE %@Busqueda%";
+                        
+            return await db.QueryAsync<Product>(sql, new { Busqueda = busqueda});
+        }
     }
 }
