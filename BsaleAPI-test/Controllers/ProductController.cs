@@ -30,11 +30,6 @@ namespace BsaleAPI_test.Controllers
             return Ok(await _productRepository.GetProductDetails(id));
         }
         
-        [HttpGet("{busqueda}")]
-        public async Task<IActionResult> GetAllProducts(string busqueda)
-        {
-            return Ok(await _productRepository.GetAllProducts(busqueda));
-        }
 
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
