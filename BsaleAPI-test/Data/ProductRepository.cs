@@ -94,5 +94,17 @@ namespace BsaleAPI_test.Data
 
             return await db.QueryAsync<Product>(sql, new { Id = id });
         }
+
+        public async Task<IEnumerable<Product>> GetProductsBySearch(string busqueda)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        SELECT id, name, url_image, price, discount, category
+                        FROM product
+                        WHERE name LIKE @Busqueda";
+
+            return await db.QueryAsync<Product>(sql, new { Busqueda = "%"+busqueda+"%"});
+        }
     }
 }

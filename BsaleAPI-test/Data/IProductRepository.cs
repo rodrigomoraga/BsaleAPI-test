@@ -10,6 +10,7 @@ namespace BsaleAPI_test.Data
     {
         Task<IEnumerable<Product>> GetAllProducts();
         Task<IEnumerable<Product>> GetProductsByCategory(int id);
+        Task<IEnumerable<Product>> GetProductsBySearch(string busqueda);
         Task<Product> GetProductDetails(int id);
         Task<bool> InsertProduct(Product product);
         Task<bool> UpdateProduct(Product product);
