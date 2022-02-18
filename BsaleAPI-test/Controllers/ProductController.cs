@@ -29,7 +29,13 @@ namespace BsaleAPI_test.Controllers
         {
             return Ok(await _productRepository.GetProductDetails(id));
         }
-        
+
+        [HttpGet("Category/{id}")]
+        public async Task<IActionResult> GetProductsByCategory(int id)
+        {
+            return Ok(await _productRepository.GetProductsByCategory(id));
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
